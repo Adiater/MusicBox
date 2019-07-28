@@ -59,15 +59,15 @@ var	svg = d3.select("body")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
  
 // Get the data
-d3.csv("data.csv", function(error, data) {
+d3.csv("data2.csv", function(error, data) {
 	data.forEach(function(d) {
 		d.date = parseDate(d.date);
 		d.close = +d.close;
 	});
  
 	// Scale the range of the data
-	x.domain(d3.extent(data, function(d) { return d.date; }));
-	y.domain([0, d3.max(data, function(d) { return d.close; })]);
+	x.domain(d3.extent(data, function(d) { return d.Year; }));
+	y.domain([0, d3.max(data, function(d) { return d.Incident_Cases_Africa; })]);
  
 	// Add the valueline path.
 	svg.append("path")	
