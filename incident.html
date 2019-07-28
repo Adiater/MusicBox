@@ -82,7 +82,7 @@ d3.csv("data2.csv", function(error, data) {
 	// Add the valueline2 path.
 	svg.append("path")	
 		.attr("class", "line")
-	        .attr("stroke", "red")
+	        .style("stroke", "green")
 		.attr("d", valueline2(data));
  
 	// Add the X Axis
