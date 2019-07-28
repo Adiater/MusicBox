@@ -49,6 +49,11 @@ var	yAxis = d3.svg.axis().scale(y)
 var	valueline = d3.svg.line()
 	.x(function(d) { return x(d.Year); })
 	.y(function(d) { return y(d.Incident_Cases_Africa); });
+	
+// Define the line
+var	valueline2 = d3.svg.line()
+	.x(function(d) { return x(d.Year); })
+	.y(function(d) { return y(d.Incident_Cases_Americas); });
     
 // Adds the svg canvas
 var	svg = d3.select("body")
@@ -73,6 +78,11 @@ d3.csv("data2.csv", function(error, data) {
 	svg.append("path")	
 		.attr("class", "line")
 		.attr("d", valueline(data));
+	
+	// Add the valueline2 path.
+	svg.append("path")	
+		.attr("class", "line")
+		.attr("d", valueline2(data));
  
 	// Add the X Axis
 	svg.append("g")		
